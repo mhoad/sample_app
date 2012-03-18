@@ -29,6 +29,12 @@ describe "User pages" do
       end
     end
 
+    describe "error messages" do
+    	before { click_button "Create my account" }
+        it { should have_selector('title', text: 'Sign up') }
+        it { should have_content('error') }
+    end
+
     describe "with valid information" do
       before do
         fill_in "Name",         with: "Example User"
